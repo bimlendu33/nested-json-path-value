@@ -40,8 +40,6 @@ const findPath = (object, path) => {
   } else {
     valueOfPath.splice(0, valueOfPath.length, undefined);
   }
-  for (var i = 0; i < pathsList.length; i++) {}
-
   return valueOfPath[0];
 };
 
