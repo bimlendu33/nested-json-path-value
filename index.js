@@ -7,29 +7,29 @@ var obj = {
     k: null,
   },
 };
-var lastEl = [];
+var valueOfPath = [];
 const findPath = (object, path) => {
   var pathArr = path.split('.');
-  if (lastEl.indexOf(pathArr[0]) < 0) {
-    lastEl.splice(0, lastEl.length, object[pathArr[0]]);
+  if (valueOfPath.indexOf(pathArr[0]) < 0) {
+    valueOfPath.splice(0, valueOfPath.length, object[pathArr[0]]);
     for (var i = 1; i < pathArr.length; i++) {
-      if (lastEl[0][pathArr[i]] != undefined) {
-        lastEl.splice(0, lastEl.length, lastEl[0][pathArr[i]]);
+      if (valueOfPath[0][pathArr[i]] != undefined) {
+        valueOfPath.splice(0, valueOfPath.length, valueOfPath[0][pathArr[i]]);
       } else {
-        if (lastEl[0][pathArr[i]] === null) {
-          lastEl.splice(0, lastEl.length, null);
+        if (valueOfPath[0][pathArr[i]] === null) {
+          valueOfPath.splice(0, valueOfPath.length, null);
         } else {
-          lastEl.splice(0, lastEl.length, undefined);
+          valueOfPath.splice(0, valueOfPath.length, undefined);
         }
         break;
       }
     }
   } else {
-    lastEl.splice(0, lastEl.length, undefined);
+    valueOfPath.splice(0, valueOfPath.length, undefined);
   }
   for (var i = 0; i < pathArr.length; i++) {}
 
-  return lastEl[0];
+  return valueOfPath[0];
 };
 
 console.log(findPath(obj, 'a.b.c')); // 12
