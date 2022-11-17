@@ -7,8 +7,10 @@ var obj = {
     k: null,
   },
 };
+
 /* I shall use single array, this will keep on updating on latest path (key) value */
 var valueOfPath = [];
+
 const findPath = (object, path) => {
   /* Create an array from path (keys) which are coming with dot separation */
   var pathsList = path.split('.');
@@ -19,6 +21,7 @@ const findPath = (object, path) => {
      update Array with splice now with first path (key) value so that we can check for next path(key) 
     in the same Array
     */
+
     valueOfPath.splice(0, valueOfPath.length, object[pathsList[0]]);
 
     /* Now iterate over left paths (keys) and check if their key-value exists in Array*/
